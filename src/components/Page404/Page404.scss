@@ -1,0 +1,50 @@
+// @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Oswald:wght@400;700&display=swap");
+
+// :root {
+//   --yellow: #ffbb30;
+//   --black: #242424;
+//   --grey: #818181;
+//   --white: #ffffff;
+// }
+
+// * {
+//   margin: 0;
+//   padding: 0;
+// }
+
+// body {
+//   height: 100%;
+//   background-color: var(--yellow);
+//   font-family: "Oswald", sans-serif;
+// }
+
+pg404-container > img {
+  height: 200px;
+  display: block;
+  margin: 20px auto;
+}
+
+.pg404-banner {
+  background-color: var(--white);
+  padding: 30px 0;
+  text-align: center;
+  /* margin-top: 5%; */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.pg404-textContainer {
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
+}
+
+.tpg404-extContainer > h2 {
+  font-size: 80px;
+}
+
+.pg404-textContainer > p {
+  color: var(--grey);
+  text-align: right;
+  /* margin-right: 22%; */
+  font-size: 20px;
+}
