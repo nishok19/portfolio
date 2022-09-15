@@ -1,9 +1,12 @@
 import { useRef, useEffect } from "react";
 import "./SkillGrid.scss";
 
-import reactPic from "../../../assets/images/react.svg";
-import expressPic from "../../../assets/images/express.svg";
-import awsPic from "../../../assets/images/awsicon.svg";
+// import reactPic from "../../../assets/images/react.svg";
+// import expressPic from "../../../assets/images/express.svg";
+import awsCert from "../../../assets/images/aws-cert.jpg";
+
+import htmlCert from "../../../assets/images/html-css-cert.jpg";
+import gitCert from "../../../assets/images/git-cert.jpg";
 
 import { gsap } from "gsap";
 
@@ -32,36 +35,39 @@ const SkillGrid = () => {
   return (
     <section className="skills" ref={skillsRef}>
       <div className="skills-container">
+        <h2 className="skills-heading">Certificatons</h2>
         <ul>
           <li className="transition2">
             <div className="icon-container one">
-              <img src={reactPic} alt="" />
+              <img src={htmlCert} alt="" />
             </div>
-            <p className="skill-title">React JS Frontend Dev</p>
-            <p className="featured-desc skill-desc">
+            <p className="skill-title">
+              HTML and CSS for modern web development
+            </p>
+            {/* <p className="featured-desc skill-desc">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id luctus
               sem ac integer quis.
-            </p>
+            </p> */}
           </li>
           <li className="transition2">
             <div className="icon-container two">
-              <img src={expressPic} alt="" />
+              <img src={gitCert} alt="" />
             </div>
-            <p className="skill-title">Express JS Backend Dev</p>
-            <p className="featured-desc skill-desc">
+            <p className="skill-title">GIT and GitHub</p>
+            {/* <p className="featured-desc skill-desc">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id luctus
               sem ac integer quis.
-            </p>
+            </p> */}
           </li>
           <li className="transition2">
             <div className="icon-container three">
-              <img src={awsPic} alt="" />
+              <img src={awsCert} alt="" />
             </div>
             <p className="skill-title">AWS Archietecht</p>
-            <p className="featured-desc skill-desc">
+            {/* <p className="featured-desc skill-desc">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id luctus
               sem ac integer quis.
-            </p>
+            </p> */}
           </li>
         </ul>
       </div>

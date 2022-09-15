@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import "./Project1.scss";
 
-import chatPic from "../../../assets/images/chat-sample.png";
+import { NavLink } from "react-router-dom";
+
 import { gsap } from "gsap";
 
 const Project1 = () => {
@@ -32,16 +33,25 @@ const Project1 = () => {
         <div className="inner transition2">
           <p className="subtitle">Featured Project</p>
           <a href="/" className="featured-title">
-            Realtime Chat Application
+            HTML and CSS Project
           </a>
           <p className="featured-desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ea
-            error tempore eum sunt nesciunt nam modi sequi, molestias omnis!
+            One of many HTML and CSS projects done in the Full stack jacascript
+            bootcamp in INeuron
           </p>
+          <NavLink to="mywork" className="featured-all-proj">
+            View All Projects
+          </NavLink>
         </div>
       </div>
 
-      <img src={chatPic} alt="Featured Project" className="right transition2" />
+      <img
+        src={
+          "https://raw.githubusercontent.com/nishok19/html-css-proj-14/main/output14.png"
+        }
+        alt="Featured Project"
+        className="right transition2"
+      />
     </section>
   );
 };

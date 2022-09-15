@@ -13,7 +13,7 @@ const Home = () => {
       <Hero />
       <Project1 />
       <SkillGrid />
-      <Project23 />
+      {/* <Project23 /> */}
       <Footer />
     </div>
   );
