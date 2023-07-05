@@ -1,0 +1,64 @@
+.myworks h1 {
+  text-align: center;
+  color: #e339ed;
+}
+
+//////////////////////
+.projectCard {
+  display: flex;
+  margin: 150px;
+}
+
+.projectCard-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto 20px;
+}
+
+.projectCard-left h1 {
+  font-size: 30px;
+  color: #484848;
+}
+
+.projectCard-left p {
+  font-size: 18px;
+  text-align: center;
+  margin: 10px 20px;
+  color: #585858;
+}
+.projectCard-left > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 20px;
+  width: 100%;
+}
+
+.projectCard-left > div a {
+  border: none;
+  background: none;
+  font-size: 22px;
+  margin: 0 20px;
+  text-decoration: none;
+  text-decoration-color: none;
+  text-emphasis: none;
+  cursor: pointer;
+  color: #7752a7;
+  width: max-content;
+}
+
+.projectCard-left a {
+  display: flex;
+}
+
+.projectCard-left img {
+  height: 20px;
+  margin: auto 10px;
+}
+
+.projectCard-right img {
+  width: 600px;
+  height: 350px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
