@@ -1,0 +1,100 @@
+// @use '../Home.scss';
+
+.hero-design {
+  display: none;
+}
+
+.hero {
+  background: #6e00ff;
+  color: white;
+  display: grid;
+  text-align: center;
+  padding: 4em;
+}
+
+.meet {
+  display: flex;
+  margin: 0 auto;
+  width: 200px;
+  font-weight: bold;
+  color: #ff64cb;
+  justify-content: center;
+  span,
+  p {
+    margin: 3em 0.5em 0 0;
+  }
+}
+
+.scroll {
+  width: 30px;
+  margin-top: 2em;
+  // justify-content: start;
+}
+
+//
+
+@media only screen and (min-width: 1050px) {
+  .hero {
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 66% auto;
+    background: unset;
+    padding: 0;
+
+    .content {
+      background: #6e00ff;
+      padding: 6em 8em 6em 4em;
+      text-align: left;
+
+      h1 {
+        font-size: 3em;
+        line-height: 1.2em;
+      }
+    }
+  }
+
+  .meet {
+    margin: unset;
+    justify-content: start;
+  }
+
+  .hero-design {
+    display: unset;
+    margin: 15% 0 0 -50%;
+    width: 100%;
+  }
+
+  // .hero {
+  //   padding: 4em;
+  // }
+}
+
+//
+
+@media only screen and (min-width: 1250px) {
+  .hero .content {
+    padding: 6em 8em 6em 10em;
+  }
+}
+
+//
+
+@media only screen and (min-width: 1550px) {
+  .hero .content {
+    padding: 9em 20em 6em 20em;
+  }
+}
+
+.scrollCircle {
+  animation: circleAnim 1s infinite alternate-reverse;
+}
+
+@keyframes circleAnim {
+  from {
+    transform: translate(0px, 0px);
+    z-index: 5;
+  }
+  to {
+    transform: translate(0px, 38px);
+  }
+}

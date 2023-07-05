@@ -1,7 +1,6 @@
+import Navbar from "@/components/Navbar/Navbar";
 import "./globals.css";
-import "./Nav.scss";
 import { Inter } from "next/font/google";
-import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,68 +14,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Navbar />
-        {children}
+        <main className="h-[100vh]">{children}</main>
       </body>
     </html>
   );
 }
-
-const Navbar = () => {
-  return (
-    <div className="nav-container">
-      <header>
-        <Link href="/" className="logo">
-          Nishok ;)
-        </Link>
-
-        <nav>
-          <ul>
-            <li>
-              <Link
-                href="/"
-                // className={({ isActive }) => (isActive ? "activeNavLink" : "")}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              {/* <Link href="/"> */}
-              <Link
-                href="/mywork"
-                // className={({ isActive }) => (isActive ? "activeNavLink" : "")}
-              >
-                My work
-              </Link>
-              {/* </Link> */}
-            </li>
-            <li>
-              <Link href="/">My skills</Link>
-            </li>
-            <li>
-              <Link href="/">Hire me</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <div className="social-header">
-        <ul>
-          <li>
-            <Link href="https://www.linkedin.com/in/nishok-maharaaj-835867196/">
-              <img src="/images/linkedin-vector.svg" alt="LinkedIn" />
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <img src="/images/insta-vector.svg" alt="Instagram" />
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <img src="/images/mail-icon.svg" alt="Mail" />
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
-};
