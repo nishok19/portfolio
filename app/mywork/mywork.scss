@@ -7,6 +7,8 @@
 .projectCard {
   display: flex;
   margin: 150px;
+  opacity: 1;
+  // transform: translateY(100px);
 }
 
 .projectCard-left {
@@ -58,7 +60,7 @@
 }
 
 .projectCard-right img {
-  width: 600px;
-  height: 350px;
+  // width: 600px;
+  // height: 350px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
