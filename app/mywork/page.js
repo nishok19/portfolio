@@ -5,7 +5,7 @@ import Image from "next/image";
 import htmlprojects from "../../DataJson/htmlProjects";
 import Link from "next/link";
 import { Expo, gsap } from "gsap";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function MyWork() {
   let tl = gsap.timeline({ defaults: { ease: Expo.easeOut }, duration: 2 });
@@ -14,20 +14,79 @@ export default function MyWork() {
     tl.from(
       ".projectCard",
       { stagger: 0.5, opacity: 0, x: -100, duration: 2 },
-      "-=1"
+      "+=0.5"
     );
   }, []);
 
   return (
-    <div className="myworks">
-      <h1>HTML&CSS Projects</h1>
-
-      {htmlprojects.map((proj) => (
-        <ProjectCard project={proj} key={proj.name} />
-      ))}
-    </div>
+    <>
+      <TabNav />
+      <div className="myworks">
+        {htmlprojects.map((proj) => (
+          <ProjectCard project={proj} key={proj.name} />
+        ))}
+      </div>
+    </>
   );
 }
+
+const TabNav = () => {
+  const [selectedTab, setSelectedTab] = useState({
+    index: 0,
+    selectedStyle:
+      "inline-block bg-gray-500 text-white rounded-t-lg py-4 px-4 text-sm font-medium text-center",
+    unSelectedStyle:
+      "inline-block text-gray-500 hover:text-gray-600 hover:bg-gray-50 rounded-t-lg py-4 px-4 text-sm font-medium text-center",
+  });
+
+  const updateSelectedTab = (i) => {
+    setSelectedTab({ ...selectedTab, index: i });
+    console.log(selectedTab);
+  };
+
+  return (
+    <>
+      <ul className="flex flex-wrap mt-6 justify-center border-b-4 border-gray-500">
+        <li className="mr-2">
+          <button
+            onClick={() => updateSelectedTab(0)}
+            className={
+              selectedTab.index == 0
+                ? selectedTab.selectedStyle
+                : selectedTab.unSelectedStyle
+            }
+          >
+            React - FullStack(MERN)
+          </button>
+        </li>
+        <li className="mr-2">
+          <button
+            onClick={() => updateSelectedTab(1)}
+            className={
+              selectedTab.index === 1
+                ? selectedTab.selectedStyle
+                : selectedTab.unSelectedStyle
+            }
+          >
+            HTML, CSS & Tailwind
+          </button>
+        </li>
+        <li className="mr-2">
+          <button
+            onClick={() => updateSelectedTab(2)}
+            className={
+              selectedTab.index === 2
+                ? selectedTab.selectedStyle
+                : selectedTab.unSelectedStyle
+            }
+          >
+            Others
+          </button>
+        </li>
+      </ul>
+    </>
+  );
+};
 
 const ProjectCard = ({ project }) => {
   return (
