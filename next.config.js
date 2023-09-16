@@ -3,7 +3,7 @@ const path = require("path");
 
 const nextConfig = {
   images: {
-    domains: ["raw.githubusercontent.com"],
+    domains: ["raw.githubusercontent.com", "github.com"],
   },
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],

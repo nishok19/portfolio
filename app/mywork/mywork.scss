@@ -1,8 +1,8 @@
 //////////////////////
 .projectCard {
   display: flex;
-  margin: 150px;
-  opacity: 1;
+  // margin: 150px;
+  // opacity: 1;
   // transform: translateY(100px);
 }
 
@@ -58,4 +58,8 @@
   // width: 600px;
   // height: 350px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.cardContainer:nth-of-type(even) {
+  // background-color: #6f6f6f;
 }

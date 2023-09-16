@@ -5,43 +5,56 @@ import Image from "next/image";
 import htmlprojects from "../../DataJson/htmlProjects";
 import Link from "next/link";
 import { Expo, gsap } from "gsap";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function MyWork() {
-  let tl = gsap.timeline({ defaults: { ease: Expo.easeOut }, duration: 2 });
+  const [selectedTab, setSelectedTab] = useState({
+    index: 0,
+    type: "",
+    selectedStyle:
+      "inline-block bg-gray-500 text-white rounded-t-lg py-4 px-4 text-sm font-medium text-center",
+    unSelectedStyle:
+      "inline-block text-gray-500 hover:text-gray-600 hover:bg-gray-50 rounded-t-lg py-4 px-4 text-sm font-medium text-center",
+  });
+  const tl2 = useRef(gsap.timeline());
 
   useEffect(() => {
-    tl.from(
+    tl2.current.from(
       ".projectCard",
       { stagger: 0.5, opacity: 0, x: -100, duration: 2 },
       "+=0.5"
     );
   }, []);
 
+  useEffect(()=>{
+    console.log('tabbbs.. ', selectedTab)
+  },[selectedTab])
+
   return (
     <>
-      <TabNav />
+      <TabNav selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
       <div className="myworks">
         {htmlprojects.map((proj) => (
-          <ProjectCard project={proj} key={proj.name} />
+          proj.type === selectedTab.type ? <ProjectCard project={proj} key={proj.name} /> : null
         ))}
+        <div></div>
+        <div className="marker fixed top-0 left-0 w-[100vw] h-[50vh] z-[-10]"></div>
       </div>
     </>
   );
 }
 
-const TabNav = () => {
-  const [selectedTab, setSelectedTab] = useState({
-    index: 0,
-    selectedStyle:
-      "inline-block bg-gray-500 text-white rounded-t-lg py-4 px-4 text-sm font-medium text-center",
-    unSelectedStyle:
-      "inline-block text-gray-500 hover:text-gray-600 hover:bg-gray-50 rounded-t-lg py-4 px-4 text-sm font-medium text-center",
-  });
+const TabNav = ({selectedTab, setSelectedTab}) => {
 
   const updateSelectedTab = (i) => {
-    setSelectedTab({ ...selectedTab, index: i });
-    console.log(selectedTab);
+    let clickedTab = "react"
+    if(i==0) clickedTab = "react"
+    else if(i==1) clickedTab = "htmlcss"
+    else if(i==2) clickedTab = "others"
+    else clickedTab = "react"
+
+    setSelectedTab({ ...selectedTab, index: i, type: clickedTab });
   };
 
   return (
@@ -56,7 +69,7 @@ const TabNav = () => {
                 : selectedTab.unSelectedStyle
             }
           >
-            React - FullStack(MERN)
+            Full-Stack Projects
           </button>
         </li>
         <li className="mr-2">
@@ -68,7 +81,7 @@ const TabNav = () => {
                 : selectedTab.unSelectedStyle
             }
           >
-            HTML, CSS & Tailwind
+            HTML, CSS & TailwindCSS
           </button>
         </li>
         <li className="mr-2">
@@ -89,11 +102,55 @@ const TabNav = () => {
 };
 
 const ProjectCard = ({ project }) => {
+  const tl3 = useRef();
+
+  // useEffect(() => {
+  //   //
+  //   gsap.registerPlugin(ScrollTrigger);
+  //   // var color = gsap
+  //   //   .timeline({ paused: true })
+  //   //   .set(".center", { color: "#4e4e4e" });
+  //   // ScrollTrigger.create({
+  //   //   trigger: ".cardContainer",
+  //   //   start: "top top",
+  //   //   end: "bottom center+=21",
+  //   //   pin: ".projectCard-left",
+  //   // onLeave: () => color.play(),
+  //   // onEnterBack: () => color.reverse(),
+  //   // onLeaveBack: () => color.reverse(),
+  //   // });
+
+  //   var sections = gsap.utils
+  //     .toArray(".cardContainer")
+  //     .forEach(function (elem) {
+  //       var thisLine = elem.querySelectorAll(".projectCard");
+  //       console.log("thissslinge", thisLine);
+  //       var tlst = gsap.timeline({
+  //         scrollTrigger: {
+  //           trigger: elem,
+  //           start: "top center",
+  //           end: "bottom center",
+  //           pin: thisLine,
+  //           scrub: true,
+  //           //entering,leaving,entering backwards,back past the beginning
+  //           toggleActions: "play reverse play reverse",
+  //           // markers: true,
+  //         },
+  //       });
+  //       tlst.from(thisLine, {
+  //         backgroundColor: "blue",
+  //         opacity: 0.8,
+  //         duration: 1,
+  //       });
+  //     });
+  //   //
+  // }, []);
+
   return (
-    <div className="cardContainer">
+    <div className="cardContainer  w-[100%] my-8 ">
       <div className="card projectCard">
-        <div className="projectCard-left">
-          <h1 className="">{project.name}</h1>
+        <div className="projectCard-left max-w-[70%]">
+          <h1 className="title">{project.name}</h1>
           <p className="">{project.description}</p>
           <div>
             <Link href={project.srclink} target="_blank">
@@ -116,7 +173,7 @@ const ProjectCard = ({ project }) => {
             </Link>
           </div>
         </div>
-        <div className="projectCard-right">
+        <div className="projectCard-right min-w-[30%] max-w-[30%]">
           <div>
             <Image
               src={`${project.img}`}
@@ -124,7 +181,7 @@ const ProjectCard = ({ project }) => {
               height={300}
               width={300}
               alt="image"
-              className="h-[auto] w-[900px]"
+              className="h-[auto] w-[900px] max-h-[300px] min-h-[300px] object-contain"
             />
           </div>
         </div>
