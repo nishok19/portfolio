@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slick-slide > div {
+    margin: 0 20px;
+}
+
+.slick-slide {
+    opacity: 0.6;
+    transform: scale(0.9);
+}
+
+.slick-current {
+    opacity: 1;
+    transform: scale(1);
+
+}
