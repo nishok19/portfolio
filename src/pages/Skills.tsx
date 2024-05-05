@@ -27,7 +27,7 @@ const Skills = () => {
     setProjectsDisplay(ProjectTypes("react"));
   }, []);
 
-  const ProjectTypes = (type) => {
+  const ProjectTypes = (type: any) => {
     if (type === "htmlcss") {
       setSelectedType("htmlcss");
       return projects.filter((item) => item.type === "htmlcss");
@@ -39,6 +39,8 @@ const Skills = () => {
       return projects.filter((item) => item.type === "others");
     } else if (type === "all") {
       setSelectedType("all");
+      return projects;
+    } else {
       return projects;
     }
   };
