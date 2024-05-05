@@ -1,5 +1,3 @@
-import React from "react";
-
 const Menu = ({ onSectionChange, menuOpened, setMenuOpened }: any) => {
   return (
     <div>
@@ -23,7 +21,6 @@ const Menu = ({ onSectionChange, menuOpened, setMenuOpened }: any) => {
           }`}
         />
       </button>
-      {/*  */}
       <div
         className={`z-10 fixed top-0 right-0 bottom-0 bg-white transition-all overflow-hidden flex flex-col ${
           menuOpened ? "w-80" : "w-0"

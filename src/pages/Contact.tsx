@@ -29,6 +29,7 @@ const Contact = () => {
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
+              crossOrigin={undefined}
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               Your Email
@@ -40,6 +41,7 @@ const Contact = () => {
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
+              crossOrigin={undefined}
             />
             <Typography variant="h6" color="blue-gray" className="-mb-3">
               Message
