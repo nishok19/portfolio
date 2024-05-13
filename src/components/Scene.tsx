@@ -35,13 +35,13 @@ export default function Scene() {
         <directionalLight position={[-5, -5, 5]} intensity={4} />
         <ambientLight intensity={3} />
         <Suspense fallback={<Loader />}>
-          <ScrollControls damping={0.2} pages={3}>
+          <ScrollControls damping={0.2} pages={4}>
             <ScrollManager section={section} onSectionChange={setSection}>
               <Scroll>
-                <Model />
+                <Model menuOpened={menuOpened} />
               </Scroll>
               <Scroll html>
-                <MainPage />
+                <MainPage menuOpened={menuOpened} />
               </Scroll>
             </ScrollManager>
           </ScrollControls>

@@ -1,12 +1,14 @@
 import Contact from "../pages/Contact";
 import Home from "../pages/Home";
+import Projects from "../pages/Projects";
 import Skills from "../pages/Skills";
 
-const MainPage = () => {
+const MainPage = ({ menuOpened }: any) => {
   return (
-    <div className="">
-      <Home />
+    <div className="container">
+      <Home menuOpened={menuOpened} />
       <Skills />
+      <Projects />
       <Contact />
     </div>
   );

@@ -1,6 +1,10 @@
 import { Button } from "@material-tailwind/react";
 
-const Home = () => {
+const Home = ({ menuOpened }: any) => {
+  // menuOpened ? null :
+
+  if (menuOpened) return <section className="h-screen w-screen"></section>;
+
   return (
     <section className="h-screen w-screen">
       <div className="flex justify-start pt-[20%] ml-[10%] h-full">

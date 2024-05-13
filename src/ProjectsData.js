@@ -18,6 +18,15 @@ export const projects = [
     type: "react",
   },
   {
+    name: "React-Redux-Authentication",
+    description:
+      "This application is a full-stack web application built using React.js, Express, MongoDB, Zustand for state management, and secure user authentication. It reflects my expertise in web development and my commitment to delivering user-centric solutions.",
+    img: "https://img.freepik.com/free-vector/two-factor-authentication-concept-illustration_114360-5488.jpg?t=st=1715183369~exp=1715186969~hmac=9a0b8f2f5db27e929ab66d77d3bafb3a32865bbd3a405e07bb76c3f49718c8f6&w=826",
+    srclink: "https://github.com/nishok19/react-redux-auth-protected",
+    livelink: "https://github.com/nishok19/react-redux-auth-protected",
+    type: "backend",
+  },
+  {
     name: "HTML&CSS Project - 1",
     description:
       "My projects are a testament to my proficiency in HTML, CSS, JavaScript, and Tailwind CSS, combining these technologies to create visually appealing and highly functional websites.",
@@ -156,5 +165,44 @@ export const projects = [
     srclink: "https://github.com/nishok19/html-css-proj-15",
     livelink: "https://nishok-html-css-proj15.netlify.app/",
     type: "htmlcss",
+  },
+];
+
+export const skills = [
+  {
+    title: "Javascript",
+    level: 90,
+  },
+  {
+    title: "React Js",
+    level: 90,
+  },
+  {
+    title: "Next Js",
+    level: 70,
+  },
+  {
+    title: "Nodejs",
+    level: 90,
+  },
+  {
+    title: "Express",
+    level: 80,
+  },
+  {
+    title: "Redux - State Management",
+    level: 80,
+  },
+  {
+    title: "Tailwind CSS",
+    level: 90,
+  },
+  {
+    title: "MongoDB",
+    level: 75,
+  },
+  {
+    title: "SQL",
+    level: 70,
   },
 ];
