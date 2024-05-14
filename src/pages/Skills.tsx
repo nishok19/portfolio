@@ -1,10 +1,23 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { skills } from "../ProjectsData";
+import { useEffect, useRef } from "react";
 
-const Skills = () => {
+const Skills = ({ setSection }: any) => {
+  const ref = useRef(null);
+  const isSkillsInView = useInView(ref);
+
+  useEffect(() => {
+    console.log("isskillsinview", isSkillsInView);
+    isSkillsInView ? setSection(1) : null;
+  }, [isSkillsInView]);
+
   return (
-    <section className="h-screen flex p-12">
-      <motion.div whileInView={"visible"} className="ml-20 mt-8 space-y-4">
+    <motion.section className="h-screen w-screen flex p-12">
+      <motion.div
+        ref={ref}
+        whileInView={"visible"}
+        className="ml-auto mt-8 mr-48 space-y-4 p-20 bg-[#f3f4f6a4] rounded-3xl"
+      >
         <h2 className="text-5xl font-[900]">Skills</h2>
         {skills.map((skill, index) => (
           <div className="w-64" key={index}>
@@ -47,7 +60,7 @@ const Skills = () => {
           </div>
         ))}
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 

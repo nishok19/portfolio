@@ -3,9 +3,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { projects } from "../ProjectsData.js";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useInView } from "framer-motion";
 
-const Projects = () => {
+const Projects = ({ setSection }: any) => {
   var settings = {
     className: "center",
     centerMode: true,
@@ -22,10 +23,18 @@ const Projects = () => {
   const [projectsDisplay, setProjectsDisplay] = useState(projects);
   const [selectedType, setSelectedType] = useState("all");
 
+  const ref = useRef(null);
+  const isProjectsInView = useInView(ref);
+
   useEffect(() => {
     console.log(projects.filter((item) => item.type === "react"));
     setProjectsDisplay(ProjectTypes("react"));
   }, []);
+
+  useEffect(() => {
+    console.log("isProjectsInView", isProjectsInView);
+    isProjectsInView ? setSection(2) : null;
+  }, [isProjectsInView]);
 
   const ProjectTypes = (type: any) => {
     if (type === "htmlcss") {
@@ -51,7 +60,10 @@ const Projects = () => {
   return (
     <section className="h-screen bg-[#064e3b] overflow-hidden w-screen">
       <div className="flex items-center">
-        <h3 className="text-[#fb923c] mt-10 ml-20 text-bold text-[70px]">
+        <h3
+          ref={ref}
+          className="text-[#fb923c] mt-10 ml-20 text-bold text-[70px]"
+        >
           Portfolio
         </h3>
       </div>

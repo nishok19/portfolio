@@ -6,11 +6,20 @@ import {
   Typography,
   Textarea,
 } from "@material-tailwind/react";
+import { useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
 
-const Contact = () => {
+const Contact = ({ setSection }: any) => {
+  const ref = useRef(null);
+  const isContactsInView = useInView(ref);
+
+  useEffect(() => {
+    isContactsInView ? setSection(3) : null;
+  }, [isContactsInView]);
+
   return (
     <section className="h-screen flex items-center justify-center p-12">
-      <Card color="transparent" shadow={false}>
+      <Card ref={ref} color="transparent" shadow={false}>
         <Typography variant="h4" color="blue-gray">
           Contact Me !!
         </Typography>
