@@ -1,10 +1,9 @@
 import { useAnimations, useGLTF, useScroll } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
 import { motion } from "framer-motion-3d";
 import { useEffect, useRef } from "react";
 import { Group } from "three";
-import * as THREE from "three";
 
 useGLTF.preload("/windmill_near_water.glb");
 
@@ -22,13 +21,13 @@ export default function Model({ menuOpened, section }: any) {
   const cameraLookAtY = useMotionValue(0);
   const cameraLookAtZ = useMotionValue(0);
 
-  const framerMotionConfig = {
-    type: "spring",
-    mass: 2,
-    stiffness: 100,
-    damping: 50,
-    restDelta: 0.0001,
-  };
+  // var framerMotionConfig = {
+  //   type: "spring",
+  //   mass: 2,
+  //   stiffness: 100,
+  //   damping: 50,
+  //   restDelta: 0.0001,
+  // };
 
   useEffect(() => {
     actions["Mill|Turning"] && actions["Mill|Turning"].play();
@@ -36,31 +35,64 @@ export default function Model({ menuOpened, section }: any) {
 
   useEffect(() => {
     animate(cameraPositionX, menuOpened ? 1 : 3, {
-      ...framerMotionConfig,
+      type: "spring",
+      mass: 2,
+      stiffness: 100,
+      damping: 50,
+      restDelta: 0.0001,
     });
+
     animate(cameraLookAtX, menuOpened ? 10 : 0, {
-      ...framerMotionConfig,
+      type: "spring",
+      mass: 2,
+      stiffness: 100,
+      damping: 50,
+      restDelta: 0.0001,
     });
     animate(cameraLookAtY, menuOpened ? 1 : 1, {
-      ...framerMotionConfig,
+      type: "spring",
+      mass: 2,
+      stiffness: 100,
+      damping: 50,
+      restDelta: 0.0001,
     });
     //
     // if (section == 1) {
     animate(cameraLookAtX, section == 1 ? 3 : -2, {
-      ...framerMotionConfig,
+      type: "spring",
+      mass: 2,
+      stiffness: 100,
+      damping: 50,
+      restDelta: 0.0001,
     });
     animate(cameraLookAtZ, section == 1 ? 0 : 1, {
-      ...framerMotionConfig,
+      type: "spring",
+      mass: 2,
+      stiffness: 100,
+      damping: 50,
+      restDelta: 0.0001,
     });
     //
     animate(cameraPositionX, section == 1 ? -3 : 1, {
-      ...framerMotionConfig,
+      type: "spring",
+      mass: 2,
+      stiffness: 100,
+      damping: 50,
+      restDelta: 0.0001,
     });
     animate(cameraPositionY, section == 1 ? 0.3 : 0, {
-      ...framerMotionConfig,
+      type: "spring",
+      mass: 2,
+      stiffness: 100,
+      damping: 50,
+      restDelta: 0.0001,
     });
     animate(cameraPositionZ, section == 1 ? 2 : 3, {
-      ...framerMotionConfig,
+      type: "spring",
+      mass: 2,
+      stiffness: 100,
+      damping: 50,
+      restDelta: 0.0001,
     });
     // }
   }, [menuOpened, section]);
