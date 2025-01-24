@@ -6,7 +6,7 @@ export const projects = [
       "I'm excited to introduce a dynamic, feature-rich E-Commerce application. It's a full-stack web project using Next.js, Express, MongoDB, and Redux, showcasing my web development skills.",
     img: "https://github.com/nishok19/portfolio/blob/main/public/images/ImgEcom-1.png?raw=true",
     srclink: "https://github.com/nishok19/portfolio",
-    livelink: "https://nishok.my",
+    livelink: "https://img.nishok.my",
     type: "react",
   },
  {
